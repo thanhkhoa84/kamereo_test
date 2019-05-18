@@ -1,5 +1,6 @@
 const initialState = {
-    charities: []
+  charities: [],
+  donate: 0,
 };
 
 export default initialState;

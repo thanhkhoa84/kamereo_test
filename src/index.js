@@ -5,11 +5,15 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import initialState from './reducers/initialState';
 import { loadCharities } from './actions/charitiesActions';
+import { getAllDonations } from './actions/donationsActions';
 
 import App from './App';
 
 const store = configureStore(initialState);
 store.dispatch(loadCharities());
+store.dispatch(getAllDonations());
+
+console.log(store.getState())
 
 // const store = createStore(function(state, action) {
 //   const _state = state == null ? {
