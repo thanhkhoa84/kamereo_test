@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import fetch from 'isomorphic-fetch';
 
 import * as donationsActions from './actions/donationsActions'; 
 
+import Message from './components/Message';
 import Donate from './components/Donate';
 
 const Container = styled.div`
@@ -30,6 +30,7 @@ class App extends Component {
   render() {
     return (
       <Container>
+        <Message />
         <h1>Omise Tamboon React</h1>
         <Donate/>
       </Container>

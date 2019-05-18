@@ -6,7 +6,7 @@ function messageReducer(state = '', action) {
       return [...state, action.message];
 
     case types.REMOVE_MESSAGE:
-      return [...state.splice(1)]
+      return [...state.splice(1)];
 
     default:
       return state;

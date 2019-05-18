@@ -13,15 +13,6 @@ const DonationInfo = styled.div`
   margin-bottom: 1em;
 `;
 
-const DonateMessage = styled.div`
-  background: #28a745;
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin: 10px 0;
-`;
-
 class Donate extends React.Component {
   constructor(props) {
     super(props);
@@ -31,10 +22,6 @@ class Donate extends React.Component {
     return (
       <div>
         <DonationInfo>All donations: {this.props.donate} </DonationInfo> 
-        { this.props.message.map((m, i) => (
-          <DonateMessage key={i}>{m}</DonateMessage>
-        ))
-        }
         <div>
           {this.props.charities.map((item, i) => {
             return (
