@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import  { connect } from 'react-redux';
 import styled from 'styled-components';
 import fetch from 'isomorphic-fetch';
 
-import { summaryDonations } from './helpers';
 import * as donationsActions from './actions/donationsActions'; 
 
 import Donate from './components/Donate';

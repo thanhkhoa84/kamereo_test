@@ -7,8 +7,6 @@ import initialState from './reducers/initialState';
 import { loadCharities } from './actions/charitiesActions';
 import { getAllDonations } from './actions/donationsActions';
 
-import 'toastr/build/toastr.css';
-
 import App from './App';
 
 const store = configureStore(initialState);

@@ -13,18 +13,19 @@ const DonateCardContainer = styled.div`
   padding-bottom: 50%;
   position: relative;
   width: 100%;
-  height: 56%;
-  transition: all 0.5s;
+  height: calc((100vw - 20px)*56/100);
+  transition: all 0.2s;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
   @media(min-width:768px) {
     width: calc((100% - 25px)/2);
     height: calc(56/100*37vw);
     padding-bottom: 0;
-    &:nth-child(odd) {
+    &:nth-child(even) {
       margin-left: 25px;
     }
   }
   &:hover {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
   }
   button {
     background: #fff;
@@ -50,9 +51,9 @@ const CharityImage = styled.img`
   max-width: 100%;
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translateX(-50%);
 `;
 
 const DonateInfo = styled.div`
@@ -63,7 +64,8 @@ const DonateInfo = styled.div`
   right: 0;
   padding: 15px;
   h2 {
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: normal;
     float: left;
     line-height: 34px;
     margin: 0;

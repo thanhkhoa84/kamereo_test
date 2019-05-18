@@ -41,14 +41,15 @@ const CloseButton = styled.a`
   position: absolute;
   top: 5px;
   right: 5px;
+  z-index: 10; 
 `;
 
 const LabelContainer = styled.div`
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   label {
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 3px;
     vertical-align: top;
   }
 `;
@@ -98,7 +99,9 @@ class DonatePanel extends React.Component {
             onClick={() => {
               this.props.handlePay(id, this.state.selectedAmount, currency)}
             }
-          >Pay</button>
+          >
+            Pay
+          </button>
         </DonatePanelContent>
       </DonatePanelContainer>
     )

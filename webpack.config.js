@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: './src/index.js',
@@ -53,6 +54,13 @@ const config = {
   },
 
   plugins: [
+    new HtmlWebpackPlugin({
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+      },
+      inject: true,
+    }),
     new ExtractTextPlugin('styles.css'),
   ],
 };

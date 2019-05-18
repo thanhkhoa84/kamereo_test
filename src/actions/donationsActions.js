@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import fetch from 'isomorphic-fetch';
-import toastr from 'toastr';
+
+import * as messageActions from './messageActions';
 
 export function getAllDonateSuccess(donations) {
   return {
@@ -49,10 +50,14 @@ export function payDonate(id, amount, currency) {
         return resp.json();
       })
       .then(function (data) {
-        toastr.success(`Thanks for donate ${data.amount}`);
         dispatch(donateSuccess(data.amount));
+        dispatch(messageActions.updateMessage(`Thank you for donated ${data.amount}`));
+        setTimeout(() => {
+          dispatch(messageActions.removeMessage());
+        }, 3000);
       })
       .catch(err => {
+        dispatch(messageActions.updateMessage(err));
         console.log(err);
       });
   }
