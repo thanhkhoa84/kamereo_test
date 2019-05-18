@@ -16,13 +16,16 @@ const DonateCardContainer = styled.div`
   height: calc((100vw - 20px)*56/100);
   transition: all 0.2s;
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
-  @media(min-width:768px) {
-    width: calc((100% - 25px)/2);
-    height: calc(56/100*37vw);
+  @media(min-width:500px) {
     padding-bottom: 0;
+    width: calc((100% - 25px)/2);
+    height: calc(56/100*52vw);
     &:nth-child(even) {
       margin-left: 25px;
     }
+  }
+  @media(min-width:1024px) {
+    height: calc(56/100*40vw);
   }
   &:hover {
     box-shadow: none;
