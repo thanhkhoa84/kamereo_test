@@ -8,15 +8,26 @@ import * as donationsActions from './actions/donationsActions';
 
 import Donate from './components/Donate';
 
-const Card = styled.div`
-  margin: 10px;
-  border: 1px solid #ccc;
+const Container = styled.div`
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1180px;
+  * {
+    box-sizing: border-box;
+  }
+  h1 {
+    color: #5a617d;
+    text-align: center;
+  }
 `;
 
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       message: '',
       selectedAmount: 10,
@@ -24,50 +35,13 @@ class App extends Component {
   }
 
   render() {
-    const self = this;
-    const cards = this.props.charities.map(function(item, i) {
-      const payments = [10, 20, 50, 100, 500].map((amount, j) => (
-        <label key={j}>
-          <input
-            type="radio"
-            name={`payment-${item.id}`}
-            onChange={() => {
-              self.setState({
-                selectedAmount: amount,
-              })
-            }}
-          /> {amount}
-        </label>
-      ));
-
-      return (
-        <Card key={i}>
-          <p>{item.name}</p>
-          {payments}
-          <button 
-            onClick={() => {
-              self.props.handlePay(item.id, self.state.selectedAmount, item.currency);
-            }}
-          >Pay</button>
-        </Card>
-      );
-    });
-
-    const style = {
-      color: 'red',
-      margin: '1em 0',
-      fontWeight: 'bold',
-      fontSize: '16px',
-      textAlign: 'center',
-    };
-    const donate = this.props.donate;
-
     return (
-      <div>
-        <h1>Tamboon React</h1>
-        <p>All donations: {donate}</p>
-        {cards}
-      </div>
+      <Container>
+        <h1>Omise Tamboon React</h1>
+        <Donate
+          charities={this.state.charities}
+        />
+      </Container>
     );
   }
 }
