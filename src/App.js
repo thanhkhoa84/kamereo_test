@@ -27,38 +27,16 @@ const Container = styled.div`
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      message: '',
-      selectedAmount: 10,
-    }
   }
 
   render() {
     return (
       <Container>
         <h1>Omise Tamboon React</h1>
-        <Donate
-          charities={this.state.charities}
-        />
+        <Donate/>
       </Container>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    charities: state.charities,
-    donate: state.donate,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    handlePay: (id, amount, currency) => {
-      dispatch(donationsActions.payDonate(id, amount, currency))
-    },
-  }
-}''
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
