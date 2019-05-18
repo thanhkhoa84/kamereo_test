@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import fetch from 'isomorphic-fetch';
 
 import { summaryDonations } from './helpers';
-
+import * as donationsActions from './actions/donationsActions'; 
 
 import Donate from './components/Donate';
 
@@ -15,7 +15,7 @@ const Card = styled.div`
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       message: '',
@@ -42,10 +42,8 @@ class App extends Component {
         <label key={j}>
           <input
             type="radio"
-            name="payment"
-            onClick={function() {
-              self.setState({ selectedAmount: amount })
-            }} /> {amount}
+            name={`payment-${item.id}`}
+          /> {amount}
         </label>
       ));
 
@@ -53,7 +51,11 @@ class App extends Component {
         <Card key={i}>
           <p>{item.name}</p>
           {payments}
-          <button onClick={handlePay.call(self, item.id, self.state.selectedAmount, item.currency)}>Pay</button>
+          <button 
+            onClick={() => {
+              self.props.handlePay(1, 100, 'THB');
+            }}
+          >Pay</button>
         </Card>
       );
     });
@@ -66,13 +68,13 @@ class App extends Component {
       textAlign: 'center',
     };
     const donate = this.props.donate;
-    // const message = this.state.message;
+    const message = this.state.message;
 
     return (
       <div>
         <h1>Tamboon React</h1>
         <p>All donations: {donate}</p>
-        {/* <p style={style}>{message}</p> */}
+        <p style={style}>{message}</p>
         {cards}
       </div>
     );
@@ -86,35 +88,12 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
-
-function handlePay(id, amount, currency) {
-  const self = this;
-  return function() {
-    fetch('http://localhost:3001/payments', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: `{ "charitiesId": ${id}, "amount": ${amount}, "currency": "${currency}" }`,
-    })
-      .then(function(resp) { return resp.json(); })
-      .then(function() {
-        self.props.dispatch({
-          type: 'UPDATE_TOTAL_DONATE',
-          amount,
-        });
-        self.props.dispatch({
-          type: 'UPDATE_MESSAGE',
-          message: `Thanks for donate ${amount}!`,
-        });
-
-        setTimeout(function() {
-          self.props.dispatch({
-            type: 'UPDATE_MESSAGE',
-            message: '',
-          });
-        }, 2000);
-      });
+function mapDispatchToProps(dispatch) {
+  return {
+    handlePay: (id, amount, currency) => {
+      dispatch(donationsActions.payDonate(id, amount, currency))
+    },
   }
-}
+}''
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
