@@ -29,7 +29,7 @@ Well, grap your guns, stock up your food and bring down your armor. We gonna nee
   - Database (db.json) should have the new valid data when paid.
 - [x] Refactor the code to be more readable and enhance reusability.
 - [x] Use only [styled-component](https://www.styled-components.com/) for styling part.
-- [ ] Write a nice commit message and order it well.
+- [x] Write a nice commit message and order it well.
 - [x] Display well in most modern browser (Google Chrome, Safari, Firefox).
 
 #### Bonus
