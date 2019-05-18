@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import fetch from 'isomorphic-fetch';
+import toastr from 'toastr';
 
 export function getAllDonateSuccess(donations) {
   return {
@@ -48,6 +49,7 @@ export function payDonate(id, amount, currency) {
         return resp.json();
       })
       .then(function (data) {
+        toastr.success(`Thanks for donate ${data.amount}`);
         dispatch(donateSuccess(data.amount));
       })
       .catch(err => {

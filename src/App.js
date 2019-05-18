@@ -16,23 +16,11 @@ const Card = styled.div`
 class App extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       message: '',
       selectedAmount: 10,
     }
-  }
-
-  componentDidMount() {
-    const self = this;
-    // fetch('http://localhost:3001/payments')
-    //   .then(function(resp) { return resp.json() })
-    //   .then(function(data) {
-    //     self.props.dispatch({
-    //       type: 'UPDATE_TOTAL_DONATE',
-    //       amount: summaryDonations(data.map((item) => (item.amount))),
-    //     });
-    //   })
   }
 
   render() {
@@ -43,6 +31,11 @@ class App extends Component {
           <input
             type="radio"
             name={`payment-${item.id}`}
+            onChange={() => {
+              self.setState({
+                selectedAmount: amount,
+              })
+            }}
           /> {amount}
         </label>
       ));
@@ -53,7 +46,7 @@ class App extends Component {
           {payments}
           <button 
             onClick={() => {
-              self.props.handlePay(1, 100, 'THB');
+              self.props.handlePay(item.id, self.state.selectedAmount, item.currency);
             }}
           >Pay</button>
         </Card>
@@ -68,13 +61,11 @@ class App extends Component {
       textAlign: 'center',
     };
     const donate = this.props.donate;
-    const message = this.state.message;
 
     return (
       <div>
         <h1>Tamboon React</h1>
         <p>All donations: {donate}</p>
-        <p style={style}>{message}</p>
         {cards}
       </div>
     );
