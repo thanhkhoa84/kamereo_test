@@ -31,9 +31,8 @@ export const getAllDonations = (dispatch) => (dispatch) => {
     })
     .catch(err => {
       dispatch(fetchAllDonateFailure());
-      dispatch(messageActions.updateMessage(err));
-      throw (err);
-    })
+      dispatch(messageActions.updateMessage('Failed to load all donation'));
+    });
 }
 
 
@@ -57,7 +56,7 @@ export const payDonate = (id, amount, currency) => (dispatch) => {
     })
     .catch(err => {
       dispatch(donateFailure());
-      dispatch(messageActions.updateMessage(err));
+      dispatch(messageActions.updateMessage('Failed to load donate'));
       console.log(err);
     });
 };

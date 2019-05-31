@@ -33,14 +33,14 @@ class Message extends React.Component {
   }
 
   render() {
-    const classes = 'show'
     return (
-      <MessageContainer>
+      this.props.message.length > 0 && <MessageContainer>
         {this.props.message.map((m, i) => (
           <MessageDetail key={i}>{m}</MessageDetail>
         ))
         }
       </MessageContainer>
+
     )
   }
 }

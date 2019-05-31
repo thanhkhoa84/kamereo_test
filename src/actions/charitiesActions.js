@@ -2,6 +2,8 @@ import * as types from './actionTypes';
 require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 
+import * as messageActions from './messageActions';
+
 export const fetchCharitiesSuccess = (charities) => ({
   type: types.FETCH_CHARITIES_SUCCESS,
   charities,
@@ -19,6 +21,6 @@ export const fetchCharities = (dispatch) => (dispatch) => {
     })
     .catch(err => {
       dispatch(fetchCharitiesFailure());
-      throw (err);
-    })
+      dispatch(messageActions.updateMessage('Failed to load charities'));
+    });
 }
