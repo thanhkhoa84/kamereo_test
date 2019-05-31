@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import * as donationsActions from './actions/donationsActions'; 
-
-import Message from './components/Message';
-import Donate from './components/Donate';
+import Message from './Message';
+import Donate from './Donate';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -22,20 +20,12 @@ const Container = styled.div`
   }
 `;
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Container>
-        <Message />
-        <h1>Omise Tamboon React</h1>
-        <Donate/>
-      </Container>
-    );
-  }
-}
+const App = () => (
+  <Container >
+    <Message />
+    <h1>Omise Tamboon React</h1>
+    <Donate />
+  </Container >
+);
 
 export default App;

@@ -57,23 +57,23 @@ const LabelContainer = styled.div`
 class DonatePanel extends React.Component {
   constructor(props) {
     super(props);
-    this.setSelectedAmount = this.setSelectedAmount.bind(this)
+    this.setSelectedAmount = this.setSelectedAmount.bind(this);
 
     this.state = {
       selectedAmount: 10,
-    }
+    };
   }
 
   setSelectedAmount(e) {
     this.setState({
       selectedAmount: +e.target.value,
-    })
+    });
   }
 
   render() {
     const self = this;
     const { item } = this.props;
-    const { id, currency} = item;
+    const { id, currency } = item;
 
     const payments = [10, 20, 50, 100, 500].map((amount, i) => {
       return (
@@ -87,7 +87,7 @@ class DonatePanel extends React.Component {
           /> {amount}
         </label>
       )
-    });    
+    });
 
     return (
       <DonatePanelContainer>
@@ -95,9 +95,10 @@ class DonatePanel extends React.Component {
         <DonatePanelContent>
           <p>Select the amount to donate (USD)</p>
           <LabelContainer>{payments}</LabelContainer>
-          <button 
+          <button
             onClick={() => {
-              this.props.handlePay(id, this.state.selectedAmount, currency)}
+              this.props.handlePay(id, this.state.selectedAmount, currency)
+            }
             }
           >
             Pay
