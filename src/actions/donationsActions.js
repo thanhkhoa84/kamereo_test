@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 
 import * as messageActions from './messageActions';

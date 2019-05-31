@@ -14,6 +14,8 @@ const DonateCardContainer = styled.div`
   position: relative;
   width: 100%;
   height: calc((100vw - 20px)*56/100);
+  -ms-transition: all 0.2s;
+  -moz-transition: all 0.2s;
   transition: all 0.2s;
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
   @media(min-width:768px) {
@@ -26,6 +28,9 @@ const DonateCardContainer = styled.div`
   }
   @media(min-width:1024px) {
     height: calc(56/100*40vw);
+  }
+  @media(min-width:1280px) {
+    height: calc(56/100*33vw);
   }
   &:hover {
     box-shadow: none;
