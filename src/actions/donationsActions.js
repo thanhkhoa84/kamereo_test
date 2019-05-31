@@ -12,11 +12,6 @@ export const fetchAllDonateFailure = () => ({
   type: types.FETCH_TOTAL_DONATE_FAILURE,
 });
 
-export const updateTotalDonate = (amount) => ({
-  type: types.UPDATE_TOTAL_DONATE,
-  amount,
-});
-
 export const donateSuccess = (amount) => ({
   type: types.DONATE_SUCCESS,
   amount,

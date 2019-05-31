@@ -96,10 +96,7 @@ class DonatePanel extends React.Component {
           <p>Select the amount to donate (USD)</p>
           <LabelContainer>{payments}</LabelContainer>
           <button
-            onClick={() => {
-              this.props.handlePay(id, this.state.selectedAmount, currency)
-            }
-            }
+            onClick={() => { this.props.handlePay(id, this.state.selectedAmount, currency) }}
           >
             Pay
           </button>

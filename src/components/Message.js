@@ -33,6 +33,7 @@ class Message extends React.Component {
   }
 
   render() {
+    const classes = 'show'
     return (
       <MessageContainer>
         {this.props.message.map((m, i) => (
@@ -44,11 +45,9 @@ class Message extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    message: state.message,
-  }
-}
+const mapStateToProps = (state) => ({
+  message: state.message,
+});
 
 
 export default connect(mapStateToProps)(Message);
