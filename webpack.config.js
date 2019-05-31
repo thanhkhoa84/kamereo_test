@@ -1,6 +1,4 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: './src/index.js',
@@ -31,38 +29,8 @@ const config = {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.(css|scss)$/,
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          publicPath: './',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              importLoaders: true,
-              modules: false,
-              minimize: false,
-            },
-          },
-            'sass-loader',
-            'import-glob-loader',
-          ],
-        }),
-      },
     ],
   },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-      },
-      inject: true,
-    }),
-    new ExtractTextPlugin('styles.css'),
-  ],
 };
 
 module.exports = config;
