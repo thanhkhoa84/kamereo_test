@@ -22,5 +22,8 @@ export const fetchCharities = (dispatch) => (dispatch) => {
     .catch(err => {
       dispatch(fetchCharitiesFailure());
       dispatch(messageActions.updateMessage('Failed to load charities'));
+      setTimeout(() => {
+        dispatch(messageActions.removeMessage());
+      }, 3000);
     });
 }
