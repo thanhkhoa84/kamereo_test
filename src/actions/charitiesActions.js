@@ -24,6 +24,6 @@ export const fetchCharities = (dispatch) => (dispatch) => {
       dispatch(messageActions.updateMessage('Failed to load charities'));
       setTimeout(() => {
         dispatch(messageActions.removeMessage());
-      }, 3000);
+      }, 1500);
     });
 }

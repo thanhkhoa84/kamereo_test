@@ -27,10 +27,10 @@ const DonateCardContainer = styled.div`
     }
   }
   @media(min-width:1024px) {
-    height: calc(56/100*40vw);
+    height: calc(56/100*50vw);
   }
-  @media(min-width:1280px) {
-    height: calc(56/100*33vw);
+  @media(min-width:1200px) {
+    height: calc((1180px - 25px)/2*56/100);
   }
   &:hover {
     box-shadow: none;

@@ -34,7 +34,7 @@ export const getAllDonations = (dispatch) => (dispatch) => {
       dispatch(messageActions.updateMessage('Failed to load all donation'));
       setTimeout(() => {
         dispatch(messageActions.removeMessage());
-      }, 3000);
+      }, 1500);
     });
 }
 
@@ -55,13 +55,13 @@ export const payDonate = (id, amount, currency) => (dispatch) => {
       dispatch(messageActions.updateMessage(`Thank you for donated ${data.amount}`));
       setTimeout(() => {
         dispatch(messageActions.removeMessage());
-      }, 3000);
+      }, 1500);
     })
     .catch(err => {
       dispatch(donateFailure());
       dispatch(messageActions.updateMessage('Failed to donate'));
       setTimeout(() => {
         dispatch(messageActions.removeMessage());
-      }, 3000);
+      }, 1500);
     });
 };
