@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes'
 
-function messageReducer(state = '', action) {
+const messageReducer = (state = '', action) => {
   switch (action.type) {
     case types.UPDATE_MESSAGE:
       return [...state, action.message];
@@ -11,8 +11,6 @@ function messageReducer(state = '', action) {
     default:
       return state;
   }
-}
-
-
+};
 
 export default messageReducer;

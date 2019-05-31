@@ -1,11 +1,14 @@
 import * as types from '../actions/actionTypes';
 
-function charityReducer(state=[], action) {
+function charityReducer(state = [], action) {
   switch (action.type) {
-    case types.LOAD_CHARITIES_SUCCESS:
+    case types.FETCH_CHARITIES_SUCCESS:
       return Object.assign([], [...action.charities]);
 
-    default: 
+    case types.FETCH_CHARITIES_FAILURE:
+      return state;
+
+    default:
       return state;
   }
 }

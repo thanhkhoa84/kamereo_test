@@ -16,7 +16,7 @@ const DonateCardContainer = styled.div`
   height: calc((100vw - 20px)*56/100);
   transition: all 0.2s;
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
-  @media(min-width:500px) {
+  @media(min-width:768px) {
     padding-bottom: 0;
     width: calc((100% - 25px)/2);
     height: calc(56/100*52vw);
@@ -92,8 +92,8 @@ class DonateCard extends React.Component {
     this.setState({
       isOpening: !this.state.isOpening,
     });
-  }  
-    
+  }
+
   render() {
     const { charity } = this.props;
 
@@ -105,8 +105,8 @@ class DonateCard extends React.Component {
           <button onClick={this.showDonatePanel}>Donate</button>
         </DonateInfo>
         {
-          this.state.isOpening && 
-          <DonatePanel 
+          this.state.isOpening &&
+          <DonatePanel
             item={charity}
             selectedAmount={this.state.selectedAmount}
             showDonatePanel={this.showDonatePanel}

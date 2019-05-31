@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
-import { loadCharities } from '../actions/charitiesActions';
+import { fetchCharities } from '../actions/charitiesActions';
 import { getAllDonations } from '../actions/donationsActions';
 
 const configureStore = (initialState) => {
@@ -19,7 +19,7 @@ const configureStore = (initialState) => {
     )
   );
 
-  store.dispatch(loadCharities());
+  store.dispatch(fetchCharities());
   store.dispatch(getAllDonations());
 
   return store;
